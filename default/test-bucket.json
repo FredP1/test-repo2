@@ -56,7 +56,7 @@
       },
       "properties" : {
         "nullable-fields" : "true",
-        "number-of-records" : "100",
+        "number-of-records" : "100000",
         "null-percentage" : "0"
       },
       "propertyDescriptors" : {
@@ -117,6 +117,6 @@
   "snapshotMetadata" : {
     "author" : "f422e1c7-2e18-4ec5-91cc-bd6e0d6b259f",
     "flowIdentifier" : "test-bucket",
-    "timestamp" : 1757940069741
+    "timestamp" : 1757940368638
   }
 }
