@@ -11,7 +11,37 @@
   "flowContents" : {
     "comments" : "",
     "componentType" : "PROCESS_GROUP",
-    "connections" : [ ],
+    "connections" : [ {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "075af23f-73d1-338c-b2ef-d1d788b93f46",
+        "name" : "SplitAvro",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "81bc90e9-90f9-377d-874f-1ddcd4dd803d",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "8c0376ce-682b-3576-a41c-9805de828e1b",
+        "name" : "GenerateRecord",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 1
+    } ],
     "controllerServices" : [ ],
     "defaultBackPressureDataSizeThreshold" : "1 GB",
     "defaultBackPressureObjectThreshold" : 10000,
@@ -37,6 +67,73 @@
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
+        "artifact" : "nifi-avro-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.5.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "075af23f-73d1-338c-b2ef-d1d788b93f46",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "SplitAvro",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -232.0,
+        "y" : -48.0
+      },
+      "properties" : {
+        "Split Strategy" : "Record",
+        "Output Strategy" : "Datafile",
+        "Transfer Metadata" : "true",
+        "Output Size" : "1"
+      },
+      "propertyDescriptors" : {
+        "Split Strategy" : {
+          "displayName" : "Split Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Split Strategy",
+          "sensitive" : false
+        },
+        "Output Strategy" : {
+          "displayName" : "Output Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Output Strategy",
+          "sensitive" : false
+        },
+        "Transfer Metadata" : {
+          "displayName" : "Transfer Metadata",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Transfer Metadata",
+          "sensitive" : false
+        },
+        "Output Size" : {
+          "displayName" : "Output Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Output Size",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.avro.SplitAvro",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
         "version" : "2.5.0"
@@ -51,8 +148,8 @@
       "name" : "GenerateRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -376.0,
-        "y" : -232.0
+        "x" : -240.0,
+        "y" : -360.0
       },
       "properties" : {
         "nullable-fields" : "true",
@@ -117,6 +214,6 @@
   "snapshotMetadata" : {
     "author" : "f422e1c7-2e18-4ec5-91cc-bd6e0d6b259f",
     "flowIdentifier" : "test-bucket",
-    "timestamp" : 1757940069741
+    "timestamp" : 1757940169177
   }
 }
